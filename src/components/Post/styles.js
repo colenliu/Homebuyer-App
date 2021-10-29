@@ -17,9 +17,13 @@ const styles = StyleSheet.create({
   },
   bedrooms: {
     // margin on top + bottom
-    marginVertical: 10,
+    marginVertical: 5,
+    // marginTop: 10,
     // default size = 14
     // fontSize: 14,
+    color: '#a9a9a9',
+  },
+  typeTitle: {
     color: '#a9a9a9',
   },
   description: {

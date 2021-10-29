@@ -1,7 +1,10 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
 
-import {APARTMENT_IMAGE_URL} from '../../../assets/sources';
+import {
+  APARTMENT_IMAGE_URL,
+  FIRST_APARTMENT_DESCRIPTION,
+} from '../../../assets/sources';
 
 import styles from './styles';
 
@@ -16,26 +19,31 @@ import styles from './styles';
  */
 
 const Post = props => {
+  const post = props.post;
+
   return (
     // container styles contains everything
     <View style={styles.container}>
       <Image
         style={styles.image}
         source={{
-          uri: APARTMENT_IMAGE_URL,
+          uri: post.image,
         }}
       />
-      <Text style={styles.bedrooms}>2 Bed 2 Bedrooms</Text>
+      <Text style={styles.bedrooms}>
+        {post.bed} Bed {post.bedroom} Bedrooms
+      </Text>
+      <Text style={styles.typeTitle}>
+        [{post.type} - {post.title}.]
+      </Text>
       <Text style={styles.description} numberOfLines={2}>
-        A spacious flat overlooking the modern yet simple Downtown area of
-        Vancouver. Recently built less than a year ago, one would be a fool to
-        pass up this opportunity.
+        {FIRST_APARTMENT_DESCRIPTION}
       </Text>
       <Text style={styles.prices}>
-        <Text style={styles.oldPrice}>$3000/month </Text>
-        <Text style={styles.newPrice}> $2800/month</Text>
+        <Text style={styles.oldPrice}>${post.oldPrice}/month </Text>
+        <Text style={styles.newPrice}> ${post.newPrice}/month</Text>
       </Text>
-      <Text style={styles.totalPrice}>$590,000 total</Text>
+      <Text style={styles.totalPrice}>${post.totalPrice} total</Text>
     </View>
   );
 };
