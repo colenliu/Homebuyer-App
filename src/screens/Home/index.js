@@ -9,6 +9,8 @@ import {
 } from 'react-native';
 
 import Fontisto from 'react-native-vector-icons/Fontisto';
+// hook to navigate
+import {useNavigation} from '@react-navigation/core';
 
 import styles from './styles';
 
@@ -18,9 +20,12 @@ import styles from './styles';
  * - background image
  * - page tile
  * - explore button
+ * - navigate to search when search button pressed
  */
 
 const HomeScreen = props => {
+  const navigation = useNavigation();
+
   return (
     <View>
       <ImageBackground
@@ -35,13 +40,12 @@ const HomeScreen = props => {
       </ImageBackground>
       <Pressable
         style={styles.searchBar}
-        onPress={() => console.warn('SEARCH BUTTON PRESSED')}>
+        onPress={() => navigation.navigate('Destination Search')}>
         <Fontisto name="search" size={25} color={'#f15454'} />
         <Text style={styles.searchBarText}> Where do you want to live?</Text>
       </Pressable>
     </View>
   );
 };
-
 
 export default HomeScreen

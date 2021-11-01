@@ -1,6 +1,11 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
+  topContainer: {
+    // backgroundColor: 'yellow',
+    justifyContent: 'space-between',
+    height: '100%',
+  },
   row: {
     flexDirection: 'row',
     // put items on left and right of container (space in between)
@@ -11,6 +16,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   adult: {
+    color: 'black',
     fontWeight: 'bold',
   },
   adultAge: {
@@ -35,6 +41,22 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     fontSize: 20,
     color: 'darkgrey',
+  },
+  searchButton: {
+    // backgroundColor: 'yellow',
+    marginBottom: 20,
+    height: 50,
+    backgroundColor: 'orange',
+    marginHorizontal: 20,
+    // horizontal
+    alignItems: 'center',
+    // vertical
+    justifyContent: 'center',
+  },
+  searchText: {
+    fontSize: 20,
+    color: 'white',
+    fontWeight: 'bold',
   },
 });
 

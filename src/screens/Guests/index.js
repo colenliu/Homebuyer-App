@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {View, Text, Image, Pressable} from 'react-native';
+import {useNavigation} from '@react-navigation/core';
 
 import styles from './styles';
 
@@ -18,71 +19,91 @@ const GuestScreen = props => {
   const [children, setChildren] = useState(0);
   const [infants, setInfants] = useState(0);
 
+  const navigation = useNavigation();
+
   return (
-    <View>
-      {/** row 1 Adults */}
-      <View style={styles.row}>
-        {/** row 1 Adults text */}
-        <View>
-          <Text style={styles.adult}>Adults</Text>
-          <Text style={styles.adultAge}>Ages 13 or above</Text>
+    <View style={styles.topContainer}>
+      <View>
+        <View style={styles.row}>
+          {/** row 1 Adults text */}
+          <View>
+            <Text style={styles.adult}>Bedrooms</Text>
+            <Text style={styles.adultAge}>Recommended: 3 to 5</Text>
+          </View>
+          {/** row 1 Adults buttons */}
+          <View style={styles.adultButtons}>
+            <Pressable
+              onPress={() => setAdults(Math.max(0, adults - 1))}
+              style={styles.button}>
+              <Text>-</Text>
+            </Pressable>
+            <Text style={styles.counterText}>{adults}</Text>
+            <Pressable
+              onPress={() => setAdults(adults + 1)}
+              style={styles.button}>
+              <Text>+</Text>
+            </Pressable>
+          </View>
         </View>
-        {/** row 1 Adults buttons */}
-        <View style={styles.adultButtons}>
-          <Pressable
-            onPress={() => setAdults(Math.max(0, adults - 1))}
-            style={styles.button}>
-            <Text>-</Text>
-          </Pressable>
-          <Text style={styles.counterText}>{adults}</Text>
-          <Pressable
-            onPress={() => setAdults(adults + 1)}
-            style={styles.button}>
-            <Text>+</Text>
-          </Pressable>
+        <View style={styles.row}>
+          {/** row 1 Children text */}
+          <View>
+            <Text style={styles.adult}>Floors</Text>
+            <Text style={styles.adultAge}>Recommended: 1 to 3</Text>
+          </View>
+          {/** row 1 Children buttons */}
+          <View style={styles.adultButtons}>
+            <Pressable
+              onPress={() => setChildren(Math.max(0, children - 1))}
+              style={styles.button}>
+              <Text>-</Text>
+            </Pressable>
+            <Text style={styles.counterText}>{children}</Text>
+            <Pressable
+              onPress={() => setChildren(children + 1)}
+              style={styles.button}>
+              <Text>+</Text>
+            </Pressable>
+          </View>
+        </View>
+        <View style={styles.row}>
+          {/** row 1 Infants text */}
+          <View>
+            <Text style={styles.adult}>Washrooms</Text>
+            <Text style={styles.adultAge}>Recommended: 2-4</Text>
+          </View>
+          {/** row 1 Infants buttons */}
+          <View style={styles.adultButtons}>
+            <Pressable
+              onPress={() => setInfants(Math.max(0, infants - 1))}
+              style={styles.button}>
+              <Text>-</Text>
+            </Pressable>
+            <Text style={styles.counterText}>{infants}</Text>
+            <Pressable
+              onPress={() => setInfants(infants + 1)}
+              style={styles.button}>
+              <Text>+</Text>
+            </Pressable>
+          </View>
         </View>
       </View>
-      <View style={styles.row}>
-        {/** row 1 Adults text */}
-        <View>
-          <Text style={styles.adult}>Children</Text>
-          <Text style={styles.adultAge}>Ages 3 to 12</Text>
-        </View>
-        {/** row 1 Adults buttons */}
-        <View style={styles.adultButtons}>
-          <Pressable
-            onPress={() => setChildren(Math.max(0, children - 1))}
-            style={styles.button}>
-            <Text>-</Text>
-          </Pressable>
-          <Text style={styles.counterText}>{children}</Text>
-          <Pressable
-            onPress={() => setChildren(children + 1)}
-            style={styles.button}>
-            <Text>+</Text>
-          </Pressable>
-        </View>
-      </View>
-      <View style={styles.row}>
-        {/** row 1 Adults text */}
-        <View>
-          <Text style={styles.adult}>Infants</Text>
-          <Text style={styles.adultAge}>Ages 2 or under</Text>
-        </View>
-        {/** row 1 Adults buttons */}
-        <View style={styles.adultButtons}>
-          <Pressable
-            onPress={() => setInfants(Math.max(0, infants - 1))}
-            style={styles.button}>
-            <Text>-</Text>
-          </Pressable>
-          <Text style={styles.counterText}>{infants}</Text>
-          <Pressable
-            onPress={() => setInfants(infants + 1)}
-            style={styles.button}>
-            <Text>+</Text>
-          </Pressable>
-        </View>
+      <View>
+        <Pressable
+          onPress={() =>
+            navigation.navigate('Home', {
+              screen: 'Explore',
+              params: {
+                screen: 'Search Results',
+              },
+            })
+          }
+          style={styles.searchButton}>
+          <Text style={styles.searchText}>
+            {/* <Text style={{color: 'white', fontSize: 20, fontWeight: 'bold'}}> */}
+            Search
+          </Text>
+        </Pressable>
       </View>
     </View>
   );

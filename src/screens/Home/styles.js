@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     // display icon and text side-by-side
     flexDirection: 'row',
     height: 40,
-    top: 5,
+    top: 10,
     justifyContent: 'center',
     alignItems: 'center',
     zIndex: 1,

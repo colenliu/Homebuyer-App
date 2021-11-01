@@ -6,6 +6,7 @@
  * @flow strict-local
  */
 
+import 'react-native-gesture-handler';
 import React from 'react';
 import type {Node} from 'react';
 import {
@@ -30,32 +31,18 @@ import Post from './src/components/Post';
 // data
 import feed from './assets/data/feed';
 
+// router
+import Router from './src/navigation/Router';
+
 const post1 = feed[0];
 const post2 = feed[1];
 const post3 = feed[2];
 const post4 = feed[3];
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
 import Entype from 'react-native-vector-icons/Entypo';
 
 const App: () => Node = () => {
-  return (
-    <SafeAreaView>
-      {/* <HomeScreen /> */}
-      {/* <Post post={post1} />
-      <Post post={post2} /> */}
-      {/* <SearchResultsScreen/> */}
-      {/* <DestinationSearchScreen /> */}
-      <GuestScreen />
-    </SafeAreaView>
-  );
+  return <Router />;
 };
 
 export default App;
